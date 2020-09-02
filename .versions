@@ -36,11 +36,10 @@ mongo-decimal@0.1.1
 mongo-dev-server@1.1.0
 mongo-id@1.0.7
 npm-mongo@3.8.0
-oauth@1.3.1
-oauth2@1.3.0
 ordered-dict@1.1.0
-pathable:mit-oauth@1.0.0
+pathable:mit-oauth@1.0.1
 pathable:oauth@1.3.1
+pathable:oauth2@1.3.1
 promise@0.11.2
 random@1.2.0
 rate-limit@1.0.9
