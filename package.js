@@ -1,12 +1,12 @@
 Package.describe({
   summary: 'Mit OAuth flow',
-  version: '1.0.3',
+  version: '1.0.4',
   name: 'pathable:mit-oauth',
   git: 'https://github.com/pathable/mit-oauth',
 });
 
 Package.onUse(api => {
-  api.versionsFrom('1.10.3-beta.9')
+  api.versionsFrom('1.10.3-beta.9');
 
   api.use('ecmascript', ['client', 'server']);
   api.use('oauth2', ['client', 'server']);

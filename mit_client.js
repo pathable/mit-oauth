@@ -14,17 +14,21 @@ Mit.requestCredential = (options, credentialRequestCompleteCallback) => {
 
   const loginStyle = 'redirect';
 
-  const loginUrl =
-    config.mitSsoUrl +
-    '/oauth/authorize' +
-    `?client_id=${config.clientId}` +
-    `&response_type=code` +
-    `&redirect_uri=${OAuth._redirectUri('mit', config)}` +
-    `&state=${OAuth._stateParam(
+  const loginUrlParameters = {
+    client_id: config.clientId,
+    response_type: 'code',
+    redirect_uri: OAuth._redirectUri('mit', config),
+    state: OAuth._stateParam(
       loginStyle,
       credentialToken,
       options && options.redirectUrl
-    )}`;
+    ),
+  };
+
+  const loginUrl = config.mitSsoUrl + '/oauth/authorize?' +
+    Object.keys(loginUrlParameters).map(param =>
+      `${encodeURIComponent(param)}=${encodeURIComponent(loginUrlParameters[param])}`
+    ).join("&");
 
   OAuth.launchLogin({
     loginService: 'mit',
